@@ -6,7 +6,7 @@ const Login = () => {
         "email":"",
         "password":""
     })
-    
+
     const inputHandler = (event)=>{
         setdata({...data,[event.target.name]:event.target.value})
     }
@@ -52,6 +52,7 @@ const Login = () => {
                                 <button class="btn btn-success" type="button">Login</button>
                         </div>
                         </div>
+                        <Link class="link-underline-info text-center" to="/signup">Sign Up</Link>
                 </div>
                 </div>
                 </div>
