@@ -1,25 +1,64 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 
 const Login = () => {
+    const [data,setdata]=useState({
+        "email":"",
+        "password":""
+    })
+    
+    const inputHandler = (event)=>{
+        setdata({...data,[event.target.name]:event.target.value})
+    }
+    const readValue=()=>{
+        axios.post("",data).then(
+            (response)=>{
+                if(response.data.status == "success"){
+                    alert("Successfull Login")
+                }
+                else{
+                    alert("Failed to Login")
+                }
+            }
+        ).catch(
+            (error)=>{
+                console.log(error.message)
+                alert(error.message)
+            }
+        ).finally()
+    }
+ 
   return (
     <div>
         <div className="container">
             <div className="row">
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                    <div className="row">
-                        <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                        <div class="card">
-  <img src="https://images.unsplash.com/photo-1567516211940-21cc7895b2c1?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="..."></img>
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
+                    <div class="bg-tertiary p-3">
+                    <div class="card">
+                    <div class="card-body">
+                    <div className="row g-3">
+                        <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                            <label htmlFor="" className="form-label">Email ID</label>
+                            <input type="text" className="form-control" />
                         </div>
-                        <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6"></div>
-                    </div>
+
+                        <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                            <label htmlFor="" className="form-label">Password</label>
+                            <input type="text" className="form-control" />
+                        </div>
+
+                        <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                                <button class="btn btn-success" type="button">Login</button>
+                        </div>
+                        </div>
+                </div>
+                </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
   )
 }
