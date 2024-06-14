@@ -12,7 +12,7 @@ const Login = () => {
         setdata({...data,[event.target.name]:event.target.value})
     }
     const readValue=()=>{
-        axios.post("",data).then(
+        axios.post("http://localhost:8081/login",data).then(
             (response)=>{
                 if(response.data.status == "success"){
                     alert("Successfull Login")

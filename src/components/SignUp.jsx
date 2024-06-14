@@ -22,7 +22,7 @@ const SignUp = () => {
         console.log(data)
     if(data.password==data.confirm)
     {
-        axios.post("",data).then(
+        axios.post("http://localhost:8081/SignUp",data).then(
             (response) => {
                 console.log(response.data)
                 if (response.data.status=="success") {
