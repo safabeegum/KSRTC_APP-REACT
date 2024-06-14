@@ -17,7 +17,7 @@ const Login = () => {
                 if(response.data.status == "success"){
                     alert("Successfull Login")
                     sessionStorage.setItem("token", response.data.token)
-                    sessionStorage.setItem("email", response.tokken)
+                    sessionStorage.setItem("email", response.token)
                 }
                 else{
                     alert("Failed to Login")
