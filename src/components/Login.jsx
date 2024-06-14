@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
     const [data,setdata]=useState({
@@ -16,6 +16,8 @@ const Login = () => {
             (response)=>{
                 if(response.data.status == "success"){
                     alert("Successfull Login")
+                    sessionStorage.setItem("token", response.data.token)
+                    sessionStorage.setItem("email", response.token)
                 }
                 else{
                     alert("Failed to Login")
@@ -28,7 +30,7 @@ const Login = () => {
             }
         ).finally()
     }
- 
+    let navigate= useNavigate("/Home")
   return (
     <div>
         <div className="container">
